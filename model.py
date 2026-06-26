@@ -196,11 +196,25 @@ def build_sft_trainer(model, tokenizer, dataset, training_args, max_seq_length=2
     )
     return trainer
 
-# Step 17 - run_sft_training (not yet solved)
-# TODO: implement
+# Step 17 - run_sft_training
+def run_sft_training(trainer):
+    """Run SFT training and return the final training loss as a Python float."""
+    import sys
+    import trl
+    
+    # Force the class registration to align with what pickle expects
+    if hasattr(trl.trainer, 'sft_config'):
+        sys.modules['trl.trainer.sft_config'] = trl.trainer.sft_config
 
-# Step 18 - switch_to_inference_mode (not yet solved)
-# TODO: implement
+    train_result = trainer.train()
+    return float(train_result.training_loss)
+
+# Step 18 - switch_to_inference_mode
+def switch_to_inference_mode(model):
+    """Switch the LoRA-tuned model into Unsloth's fast inference mode and return it."""
+    # TODO: call the Unsloth helper that prepares the model for fast generation
+    from unsloth import FastLanguageModel
+    return FastLanguageModel.for_inference(model)
 
 # Step 19 - build_chat_prompt (not yet solved)
 # TODO: implement
