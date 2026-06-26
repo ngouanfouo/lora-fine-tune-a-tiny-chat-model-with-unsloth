@@ -94,8 +94,32 @@ def trainable_fraction(trainable_count, total_count):
     # TODO: return the fraction of parameters that are trainable.
     return trainable_count/total_count
 
-# Step 9 - build_instruction_examples (not yet solved)
-# TODO: implement
+# Step 9 - build_instruction_examples
+def build_instruction_examples():
+    """Return a small list of {'instruction', 'response'} dicts for SFT."""
+    # TODO: return a tiny hand-written list of instruction/response example dicts.
+    return [
+        {
+            "instruction": "What is the capital of France?",
+            "response": "The capital of France is Paris."
+        },
+        {
+            "instruction": "Explain what a neural network is in one sentence.",
+            "response": "A neural network is a computational system inspired by biological brains that learns patterns from data through interconnected layers of nodes."
+        },
+        {
+            "instruction": "Translate 'Hello, how are you?' to Spanish.",
+            "response": "Hola, ¿cómo estás?"
+        },
+        {
+            "instruction": "What is 7 + 3?",
+            "response": "7 + 3 equals 10."
+        },
+        {
+            "instruction": "Name three primary colors.",
+            "response": "The three primary colors are red, blue, and yellow."
+        }
+    ]
 
 # Step 10 - format_instruction_example (not yet solved)
 # TODO: implement
